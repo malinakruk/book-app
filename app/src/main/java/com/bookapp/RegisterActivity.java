@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     UserService userService = new UserService();
                                     userService.saveUserToDb(user);
 
-                                    startActivity(new Intent(RegisterActivity.this, UserSettingsActivity.class));
+                                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                                     finish();
                                 }
                             }
