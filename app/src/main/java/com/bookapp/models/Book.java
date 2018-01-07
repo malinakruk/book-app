@@ -8,18 +8,24 @@ import java.util.List;
 
 public class Book {
     private String id;
-    private List authors;
     private String title;
+    private List<Author> authors;
     private int year;
-    private String publisher;
     private Genre genre;
 
     public Book() {
     }
 
-    public Book(List authors, String title) {
+    public Book(String title, List authors) {
         this.authors = authors;
         this.title = title;
+    }
+
+    public Book(String title, List authors, int year, Genre genre) {
+        this.authors = authors;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
     }
 
     public String getId() {
@@ -52,14 +58,6 @@ public class Book {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
     }
 
     public Genre getGenre() {

@@ -29,17 +29,6 @@ public class UserService {
             getUserInstanceFromDb();
     }
 
-
-    public boolean saveUserToDb(User user) {
-        Task task = dbReference.child("users").child(user.getUserUid()).setValue(user);
-
-        if (!task.isSuccessful()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public String getUsername() {
         String username = "";
 
