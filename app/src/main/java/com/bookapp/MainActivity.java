@@ -33,20 +33,26 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        UserService userService = new UserService();
-//        TextView usernameBanner = (TextView) findViewById(R.id.usernameBanner);
-//        TextView emailBanner = (TextView) findViewById(R.id.emailBanner);
-//        usernameBanner.setText(userService.getUsername());
-//        emailBanner.setText(user.getEmail());
+        String extra = getIntent().getStringExtra("fragment");
+        if (extra != null && extra.equals("BooksFragment")){
 
-        //Set the fragment initially
-        HomeFragment fragment = new HomeFragment();
-        FragmentTransaction fragmentTransaction =
-                getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragmentContainer, fragment);
-        //fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+            BooksFragment fragment = new BooksFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragmentContainer, fragment);
+            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+        } else {
+
+            //Set the fragment initially
+            HomeFragment fragment = new HomeFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragmentContainer, fragment);
+            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-
+// ParentActivity - MainActivity
 
     public HomeFragment() {
         // Required empty public constructor

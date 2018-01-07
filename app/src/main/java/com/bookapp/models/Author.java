@@ -9,11 +9,25 @@ import java.util.List;
 public class Author {
     private String id;
     private String name;
+    private String surname;
     private String lived;
     private String country;
     private List works;
 
     public Author() {
+    }
+
+    public Author(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Author(String name, String surname, String lived, String country, List works) {
+        this.name = name;
+        this.surname = surname;
+        this.lived = lived;
+        this.country = country;
+        this.works = works;
     }
 
     public Author(String name) {
@@ -35,6 +49,10 @@ public class Author {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getSurname() { return surname; }
+
+    public void setSurname(String surname) { this.surname = surname; }
 
     public String getLived() {
         return lived;

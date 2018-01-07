@@ -18,6 +18,14 @@ public enum Genre {
 
     public String displayName() { return displayName; }
 
-    // Optionally and/or additionally, toString.
-    @Override public String toString() { return displayName; }
+    @Override
+    public String toString() { return displayName; }
+
+    public static Genre getEnumByValue(String value){
+        for(Genre e : Genre.values()){
+            if (value == e.displayName)
+                return e;
+        }
+        return null;
+    }
 }
