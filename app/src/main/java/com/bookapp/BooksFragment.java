@@ -44,14 +44,20 @@ public class BooksFragment extends Fragment {
 
         @Override
         public void onClick(final View v) {
+            Intent intent;
             switch (v.getId()) {
 
                 case R.id.button1:
 
+                    intent = new Intent(getActivity(), MainActivity.class);
+                    intent.putExtra("fragment", "BookCatalogueFragment");
+                    startActivity(intent);
                     break;
 
                 case R.id.button2:
-                    Intent intent = new Intent(getActivity(), AddBookActivity.class);
+
+                    intent = new Intent(getActivity(), MainActivity.class);
+                    intent.putExtra("fragment", "AddBookFragment");
                     startActivity(intent);
                     break;
 

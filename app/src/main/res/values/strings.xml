@@ -20,6 +20,7 @@
     <!--Buttons-->
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="search">Search</string>
 
     <!--BooksFragment-->
     <string name="add_book">Add book</string>
@@ -37,4 +38,7 @@
     <string name="multiple_authors">Add author</string>
     <string name="book_succes">Successfully added book</string>
     <string name="book_failed">Could not add book</string>
+
+    <!--BookCatalogueFragment-->
+    <string name="search_phrase">Enter a search phrase</string>
 </resources>

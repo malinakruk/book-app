@@ -1,6 +1,7 @@
 package com.bookapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, BookListFragment.OnFragmentInteractionListener, BookCatalogueFragment.OnFragmentInteractionListener {
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -37,6 +38,24 @@ public class MainActivity extends AppCompatActivity
         if (extra != null && extra.equals("BooksFragment")){
 
             BooksFragment fragment = new BooksFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragmentContainer, fragment);
+            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+        } else if (extra != null && extra.equals("AddBookFragment")) {
+
+            AddBookFragment fragment = new AddBookFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragmentContainer, fragment);
+            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+        } else if (extra != null && extra.equals("BookCatalogueFragment")) {
+
+            BookCatalogueFragment fragment = new BookCatalogueFragment();
             FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.fragmentContainer, fragment);
@@ -142,5 +161,15 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void messageFromChildFragment(Uri uri) {
+
+    }
+
+    @Override
+    public void messageFromParentFragment(Uri uri) {
+
     }
 }

@@ -9,23 +9,36 @@ import java.util.List;
 public class Book {
     private String id;
     private String title;
-    private List<Author> authors;
+    private List<String> authorsIds;
     private int year;
     private Genre genre;
+    private String userUid;
 
     public Book() {
     }
 
-    public Book(String title, List authors) {
-        this.authors = authors;
+    public Book(String title, List<String> authorsIds, int year, Genre genre, String userUid) {
         this.title = title;
-    }
-
-    public Book(String title, List authors, int year, Genre genre) {
-        this.authors = authors;
-        this.title = title;
+        this.authorsIds = authorsIds;
         this.year = year;
         this.genre = genre;
+        this.userUid = userUid;
+    }
+
+    public List<String> getAuthorsIds() {
+        return authorsIds;
+    }
+
+    public void setAuthorsIds(List<String> authorsIds) {
+        this.authorsIds = authorsIds;
+    }
+
+    public String getUserUid() {
+        return userUid;
+    }
+
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
     }
 
     public String getId() {
@@ -34,14 +47,6 @@ public class Book {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public List getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List authors) {
-        this.authors = authors;
     }
 
     public String getTitle() {

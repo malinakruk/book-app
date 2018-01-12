@@ -39,12 +39,16 @@ public class UserService {
         return username;
     }
 
+    public String getUserUid() {
+        return firebaseUser.getUid();
+    }
+
     public void getUserInstanceFromDb() {
         if (firebaseUser == null) {
             return;
         }
 
-        String userUid = firebaseUser.getUid();
+        String userUid = getUserUid();
         dbReference.child("users").child(userUid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

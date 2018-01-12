@@ -13,21 +13,26 @@ public class Author {
     private String lived;
     private String country;
     private List works;
+    private String userUid;
 
     public Author() {
     }
 
-    public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
-    }
-
-    public Author(String name, String surname, String lived, String country, List works) {
+    public Author(String name, String surname, String lived, String country, List works, String userUid) {
         this.name = name;
         this.surname = surname;
         this.lived = lived;
         this.country = country;
         this.works = works;
+        this.userUid = userUid;
+    }
+
+    public String getUserUid() {
+        return userUid;
+    }
+
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
     }
 
     public Author(String name) {

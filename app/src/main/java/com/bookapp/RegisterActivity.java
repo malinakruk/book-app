@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     User user = new User(userUid, username);
 
                                     DataBaseService dataBaseService = new DataBaseService();
-                                    dataBaseService.saveUserInfoToDb(user);
+                                    dataBaseService.writeUserInfoToDb(user);
 
                                     startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                                     finish();
