@@ -59,30 +59,14 @@ public class BookListFragment extends Fragment {
 //            list.add(values[i]);
 //        }
 
-        booksRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+        booksRef.addValueEventListener(new ValueEventListener() {
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dst : dataSnapshot.getChildren()) {
-                    list.add(dst.getValue().toString());
+                    list.add(dst.getValue(Book.class).getTitle());
                     System.out.println(dataSnapshot.getValue(Book.class).getTitle());
                 }
                 final ListViewAdapter adapter = new ListViewAdapter(getActivity(), android.R.layout.simple_list_item_1, list);
                 listview.setAdapter(adapter);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
             }
 
             @Override
