@@ -3,6 +3,8 @@ package com.bookapp.adapters;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+import com.bookapp.models.Book;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,11 +12,11 @@ import java.util.List;
  * Created by Malwina on 2017-12-18.
  */
 
-public class ListViewAdapter  extends ArrayAdapter<String> {
+public class ListViewAdapter  extends ArrayAdapter<Book> {
 
-    HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+    HashMap<Book, Integer> mIdMap = new HashMap<Book, Integer>();
 
-    public ListViewAdapter(Context context, int textViewResourceId, List<String> objects) {
+    public ListViewAdapter(Context context, int textViewResourceId, List<Book> objects) {
         super(context, textViewResourceId, objects);
         for (int i = 0; i < objects.size(); ++i) {
             mIdMap.put(objects.get(i), i);
@@ -23,7 +25,7 @@ public class ListViewAdapter  extends ArrayAdapter<String> {
 
     @Override
     public long getItemId(int position) {
-        String item = getItem(position);
+        Book item = getItem(position);
         return mIdMap.get(item);
     }
 

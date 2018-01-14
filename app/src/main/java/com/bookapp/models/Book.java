@@ -13,6 +13,7 @@ public class Book {
     private int year;
     private Genre genre;
     private String userUid;
+    private int averageGrade;
 
     public Book() {
     }
@@ -23,6 +24,7 @@ public class Book {
         this.year = year;
         this.genre = genre;
         this.userUid = userUid;
+        this.averageGrade = 0;
     }
 
     public List<String> getAuthorsIds() {
@@ -71,5 +73,16 @@ public class Book {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    public int getAverageGrade() {
+        return averageGrade;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder book = new StringBuilder();
+        book.append(title);
+        return book.toString();
     }
 }

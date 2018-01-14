@@ -62,7 +62,16 @@ public class MainActivity extends AppCompatActivity
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
-        } else {
+        } /*else if (extra != null && extra.equals("BookFragment")) {
+
+            BookFragment fragment = new BookFragment();
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragmentContainer, fragment);
+            //fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+        }*/ else {
 
             //Set the fragment initially
             HomeFragment fragment = new HomeFragment();

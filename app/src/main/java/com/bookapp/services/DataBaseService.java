@@ -53,17 +53,16 @@ public class DataBaseService {
         }
     }
 
-//    public void readBooksFromDb() {
-//        List<Book> books = new ArrayList<>();
-//        ValueEventListener listener = booksRef.addValueEventListener(new ValueEventListener() {
+//    // not tested
+//    public Book readBookFromDbById(int id) {
+//        final Book[] book = new Book[1];
+//
+//        ValueEventListener listener = dbReference.child("books").child(String.valueOf(id)).addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
 //                if (dataSnapshot.exists()) {
-//                    for (DataSnapshot data : dataSnapshot.getChildren()) {
-//                        books.add(data.getValue(Book.class));
-//                    }
+//                    book[0] = dataSnapshot.getValue(Book.class);
 //                }
-//                booksRef.removeEventListener(this);
 //            }
 //
 //            @Override
@@ -71,47 +70,28 @@ public class DataBaseService {
 //                Log.d(String.valueOf(this.getClass()), "Failed to read book from database");
 //            }
 //        });
+//        booksRef.removeEventListener(listener);
+//        return book[0];
 //    }
-
-    // not tested
-    public Book readBookFromDbById(int id) {
-        final Book[] book = new Book[1];
-
-        ValueEventListener listener = dbReference.child("books").child(String.valueOf(id)).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    book[0] = dataSnapshot.getValue(Book.class);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d(String.valueOf(this.getClass()), "Failed to read book from database");
-            }
-        });
-        booksRef.removeEventListener(listener);
-        return book[0];
-    }
-
-    // not tested
-    public Author readAuthorFromDbByNameAndSurname(String name, String surname) {
-        final Author[] author = new Author[1];
-        ValueEventListener listener = dbReference.child("books").orderByChild("name").equalTo(name).orderByChild("surname").equalTo(surname).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    author[0] = dataSnapshot.getValue(Author.class);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d(String.valueOf(this.getClass()), "Failed to read book from database");
-            }
-        });
-        booksRef.removeEventListener(listener);
-        return author[0];
-    }
+//
+//    // not tested
+//    public Author readAuthorFromDbByNameAndSurname(String name, String surname) {
+//        final Author[] author = new Author[1];
+//        ValueEventListener listener = dbReference.child("books").orderByChild("name").equalTo(name).orderByChild("surname").equalTo(surname).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    author[0] = dataSnapshot.getValue(Author.class);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.d(String.valueOf(this.getClass()), "Failed to read book from database");
+//            }
+//        });
+//        booksRef.removeEventListener(listener);
+//        return author[0];
+//    }
 
 }

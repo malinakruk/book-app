@@ -2,6 +2,7 @@ package com.bookapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -54,7 +55,7 @@ public class BookListFragment extends Fragment {
 //                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
 //                "Android", "iPhone", "WindowsMobile" };
 
-        final ArrayList<String> list = new ArrayList<String>();
+        final ArrayList<Book> list = new ArrayList<>();
 //        for (int i = 0; i < values.length; ++i) {
 //            list.add(values[i]);
 //        }
@@ -62,11 +63,12 @@ public class BookListFragment extends Fragment {
         booksRef.addValueEventListener(new ValueEventListener() {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dst : dataSnapshot.getChildren()) {
-                    list.add(dst.getValue(Book.class).getTitle());
+                    list.add(dst.getValue(Book.class));
                     System.out.println(dataSnapshot.getValue(Book.class).getTitle());
                 }
                 final ListViewAdapter adapter = new ListViewAdapter(getActivity(), android.R.layout.simple_list_item_1, list);
                 listview.setAdapter(adapter);
+                booksRef.removeEventListener(this);
             }
 
             @Override
@@ -79,6 +81,13 @@ public class BookListFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                Book book = (Book) parent.getItemAtPosition(position);
+
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.putExtra("fragment", "BookFragment");
+                //intent.put("book", Book);
+                startActivity(intent);
+
 
 //                final String item = (String) parent.getItemAtPosition(position);
 //                view.animate().setDuration(2000).alpha(0)

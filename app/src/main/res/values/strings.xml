@@ -41,4 +41,12 @@
 
     <!--BookCatalogueFragment-->
     <string name="search_phrase">Enter a search phrase</string>
+
+    <!--BookFragment-->
+    <string name="author">Author</string>
+    <string name="added_by">Added by</string>
+    <string name="average_grade">Average grade</string>
+    <string name="grade_book">Grade</string>
+    <string name="report_mistake">Report mistake</string>
+    <string name="navigate_back">Go back</string>
 </resources>
