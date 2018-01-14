@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.bookapp.AddBookFragment"
-    android:paddingTop="?attr/actionBarSize">
+    android:paddingTop="?attr/actionBarSize" >
 
     <TextView
         android:id="@+id/textView"
@@ -14,7 +14,7 @@
         android:layout_marginStart="23dp"
         android:text="@string/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_marginTop="20dp" />
+        app:layout_editor_absoluteY="20dp" />
 
     <EditText
         android:id="@+id/titleText"
