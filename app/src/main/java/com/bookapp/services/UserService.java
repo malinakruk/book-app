@@ -49,8 +49,7 @@ public class UserService {
         }
 
         String userUid = getUserUid();
-        DatabaseReference usersRef = dbReference.child("users");
-        ValueEventListener listener = usersRef.child(userUid).addValueEventListener(new ValueEventListener() {
+        dbReference.child("users").child(userUid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -63,7 +62,6 @@ public class UserService {
                 Log.d(String.valueOf(this.getClass()), "Failed to load user data from db");
             }
         });
-        usersRef.removeEventListener(listener);
     }
 
 }
