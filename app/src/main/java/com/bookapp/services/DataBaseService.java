@@ -93,5 +93,26 @@ public class DataBaseService {
 //        booksRef.removeEventListener(listener);
 //        return author[0];
 //    }
+//    }
+
+    // not tested
+    public Author readAuthorFromDbByNameAndSurname(String name, String surname) {
+        final Author[] author = new Author[1];
+        ValueEventListener listener = dbReference.child("books").orderByChild("name").equalTo(name).orderByChild("surname").equalTo(surname).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    author[0] = dataSnapshot.getValue(Author.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(String.valueOf(this.getClass()), "Failed to read book from database");
+            }
+        });
+        booksRef.removeEventListener(listener);
+        return author[0];
+    }
 
 }
