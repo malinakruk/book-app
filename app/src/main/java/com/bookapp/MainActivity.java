@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bookapp.models.Book;
 import com.bookapp.services.UserService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -62,16 +63,18 @@ public class MainActivity extends AppCompatActivity
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
-        } /*else if (extra != null && extra.equals("BookFragment")) {
+        } else if (extra != null && extra.equals("BookFragment")) {
 
-            BookFragment fragment = new BookFragment();
+            Book book = (Book) getIntent().getSerializableExtra("book");
+
+            BookFragment fragment = BookFragment.newInstance(book);
             FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.fragmentContainer, fragment);
             //fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
-        }*/ else {
+        } else {
 
             //Set the fragment initially
             HomeFragment fragment = new HomeFragment();

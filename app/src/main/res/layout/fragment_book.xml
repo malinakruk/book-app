@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bookapp.BookFragment"
-    android:paddingTop="?attr/actionBarSize">
+    android:paddingTop="?attr/actionBarSize"
+    tools:context="com.bookapp.BookFragment">
 
 
     <TextView
@@ -53,6 +53,7 @@
         android:id="@+id/yearTV"
         style="@style/ModelsNames"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="@string/year"
@@ -91,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@id/yearText" />
 
     <TextView
-        android:id="@+id/addedTV"
+        android:id="@+id/addedByTV"
         style="@style/ModelsNames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -102,13 +103,13 @@
         app:layout_constraintTop_toBottomOf="@id/genreTV" />
 
     <TextView
-        android:id="@+id/addedText"
+        android:id="@+id/addedByText"
         style="@style/Models"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@id/addedTV"
+        app:layout_constraintStart_toEndOf="@id/addedByTV"
         app:layout_constraintTop_toBottomOf="@id/genreText" />
 
     <TextView
@@ -120,7 +121,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/average_grade"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addedTV" />
+        app:layout_constraintTop_toBottomOf="@id/addedByTV" />
 
     <TextView
         android:id="@+id/averageGradeText"
@@ -130,7 +131,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@id/averageGradeTV"
-        app:layout_constraintTop_toBottomOf="@id/addedText" />
+        app:layout_constraintTop_toBottomOf="@id/addedByText" />
 
     <Spinner
         android:id="@+id/gradeSpinner"

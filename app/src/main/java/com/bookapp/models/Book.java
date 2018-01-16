@@ -1,12 +1,13 @@
 package com.bookapp.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Malwina on 2017-12-17.
  */
 
-public class Book {
+public class Book implements Serializable {
     private String id;
     private String title;
     private List<String> authorsIds;

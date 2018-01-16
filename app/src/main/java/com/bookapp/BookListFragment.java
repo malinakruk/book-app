@@ -85,7 +85,7 @@ public class BookListFragment extends Fragment {
 
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.putExtra("fragment", "BookFragment");
-                //intent.put("book", Book);
+                intent.putExtra("book", book);
                 startActivity(intent);
 
 
